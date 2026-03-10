@@ -1,0 +1,15 @@
+services:
+
+on:
+  push:
+    branch: [main]
+
+job:
+  greet:
+    runs_on: ubuntu-latest
+    step:
+      - name: Code checkout
+        run: actions/checkout@v4
+    step:
+      - name: greet user
+        run: echo "Hello $USER"
