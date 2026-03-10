@@ -19,3 +19,6 @@ jobs:
 
       - name: list of file in repo
         run: ls -la
+      
+      - name: running operator
+        run: uname -a
