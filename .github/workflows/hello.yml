@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: Code checkout
         uses: actions/checkout@v4 # error = wrote run instead of uses
-    steps: # error = step
+
       - name: greet user
         run: echo "Hello $USER"
