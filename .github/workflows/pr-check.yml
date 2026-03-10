@@ -1,7 +1,7 @@
 name: pull request
 
 on:
-  pull:
+  pull_request:
     branch: [main]
 
 jobs:
