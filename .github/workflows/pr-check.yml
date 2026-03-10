@@ -2,7 +2,7 @@ name: pull request
 
 on:
   pull_request:
-    branch: [main]
+    branches: [main]
 
 jobs:
   task-41:
