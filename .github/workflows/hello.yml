@@ -16,3 +16,6 @@ jobs:
 
       - name: branch name
         run: echo "${{ github.ref_name }}"
+
+      - name: list of file in repo
+        run: ls ${{ github.workspace }}
