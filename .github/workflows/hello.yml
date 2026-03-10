@@ -22,3 +22,6 @@ jobs:
       
       - name: running operator
         run: uname -a
+
+      - name: running OS
+        run: echo "Runner OS: $RUNNER_OS"
