@@ -24,4 +24,4 @@ jobs:
         run: uname -a
 
       - name: running OS
-        run: echo "Runner OS: $RUNNER_OS"
+        run: echo "Runner OS:${{ runner.os }}"
