@@ -4,7 +4,7 @@ on:
   push:
     branch: [main]
 
-job:
+jobs:
   greet:
     runs_on: ubuntu-latest
 
