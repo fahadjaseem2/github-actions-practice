@@ -1,4 +1,4 @@
-services:
+name: Greet User
 
 on:
   push:
