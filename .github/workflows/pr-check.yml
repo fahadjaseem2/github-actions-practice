@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: 21 5 * * *
+    - cron: 59 23 * * *
 
 jobs:
   task-41:
