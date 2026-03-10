@@ -3,6 +3,8 @@ name: pull request
 on:
   pull_request:
     branches: [main]
+  schedule:
+    - cron: 21 5 * * *
 
 jobs:
   task-41:
