@@ -7,9 +7,9 @@ on:
 job:
   greet:
     runs_on: ubuntu-latest
-    step:
+    steps:
       - name: Code checkout
         run: actions/checkout@v4
-    step:
+    steps:
       - name: greet user
         run: echo "Hello $USER"
