@@ -1,0 +1,20 @@
+name: GitHub hosted runner
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  os-info:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest,windows-latest,macos-latest]
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+      
+      - name: Print OS name
+        run: uname -a 
