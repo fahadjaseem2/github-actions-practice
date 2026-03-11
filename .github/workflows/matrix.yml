@@ -1,0 +1,24 @@
+name: matrix
+
+on:
+  push: 
+    branches: [main]
+
+jobs:
+  python-matrix:
+    runs-on: ubuntu-latest
+    strategy:           # This tells GitHub how to run the job, especially when running multiple variations.
+      fail-fast: false    # Even if one Python version fails, continue running the others.  matrix by default If one job fails, GitHub cancels the others to save time.
+      matrix:            # A matrix means: create multiple job runs using different parameter combinations.
+        python-version: ["3.10","3.11","3.12"]     # Here you define one variable: with three possible values
+
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+
+      - name: setup pyhton
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Python version
+        run: pyhton --version
