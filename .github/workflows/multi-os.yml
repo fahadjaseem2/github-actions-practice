@@ -13,6 +13,12 @@ jobs:
           echo "OS: $(uname -a)"
           echo "Hostname: $(hostname)"
           echo "User: $(whoami)"
+      - name: check docker,python,node and git version
+        run: |
+          python --version
+          docker --version
+          node --version
+          git --version
 
   macos-job:
     runs-on: macos-latest
