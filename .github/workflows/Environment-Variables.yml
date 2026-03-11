@@ -15,10 +15,10 @@ jobs:
     steps:
       - name: Code Checkout
         uses: actions/checkout@v4
-        env:
-          VERSION: "1.0.0"
 
       - name: Print all env variable in a single step
+        env: 
+          VERSION: 1.0.0
         run: |
           echo "Application Name: ${{ env.APP_NAME }}"
           echo "Environment is: ${{ env.ENVIRONMENT }}"
