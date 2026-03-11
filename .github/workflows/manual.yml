@@ -5,7 +5,7 @@ on:
     inputs:
       environment:      # This is the name of the input variable. also use this later on WF (${{ github.event.inputs.environment }})
         discription: 'Target Environment'  #This is the label shown in the GitHub UI.
-        recuired: true    # The workflow cannot run unless this value is provided.
+        required: true    # The workflow cannot run unless this value is provided.
         default: 'staging'   # If the user does nothing, the workflow uses:
         type: choice  # This changes the input from free text into a dropdown menu.
         options:
