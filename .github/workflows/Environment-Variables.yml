@@ -1,0 +1,25 @@
+name: env variables
+
+on:
+  push:
+    branches: [main]
+env:
+  APP_NAME: myapp
+
+jobs:
+  env-job:
+    runs-on: ubuntu-latest 
+    env:
+      ENVIRONMENT: staging
+
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
+        env:
+          VERSION: 1.0.0
+
+      - name: Print all env variable in a single step
+        run: |
+          echo "Application Name: ${{ env.APP_NAME }}"
+          echo "Environment is: ${{ env.ENVIRONMENT }}"
+          echo "Version: ${{ env.VERSION }}"
