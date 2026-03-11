@@ -1,0 +1,31 @@
+name: multi job WF
+
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v4 
+      - name: print stage name
+        run: echo "Building the App"
+
+
+  test-job:
+    needs: build-job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print stage name
+        run: echo "Running tests"
+
+  deploy-job:
+    needs: test-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: print stage name
+        run: echo "Deploying"
