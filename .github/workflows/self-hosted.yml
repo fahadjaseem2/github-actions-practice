@@ -1,0 +1,17 @@
+name: self hosted runner
+
+on:
+  push: 
+    branches: [main]
+
+jobs:
+  self-hosted-runner-info:
+    runs-on: self-hosted
+
+    steps:
+      - name: print host machine info
+        run: |
+          echo "Hostname: ${hostname}"
+          echo "Working directory: ${pwd}"
+      - name: Create file 
+        run: echo "hello from runner" > file.txt && ls 
