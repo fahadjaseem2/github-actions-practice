@@ -8,7 +8,7 @@ on:
         recuired: true    # The workflow cannot run unless this value is provided.
         default: 'staging'   # If the user does nothing, the workflow uses:
         type: choice  # This changes the input from free text into a dropdown menu.
-        choice:
+        options:
           - staging
           - production
 
@@ -16,12 +16,13 @@ on:
 jobs:
   manual_WF:
     runs-on: ubuntu-latest
-  steps:
-    - name: Code Checkout
-      uses: actions/checkout@v4
 
-    - name: greet
-      run: echo "Hello Dosto, this is manual workflow that trigger manually and this workflow is required target environmet"
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
 
-    - name: Print Environment
-      run: echo "deploying to ${{ github.event.inputs.environment }}"   
+      - name: greet user 
+        run: echo "Hello Dosto, this is manual workflow that trigger manually and this workflow is required target environmet"
+
+      - name: Print Environment
+        run: echo "deploying to ${{ github.event.inputs.environment }}"   
