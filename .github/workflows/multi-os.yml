@@ -14,7 +14,6 @@ jobs:
           echo "Hostname: $(hostname)"
           echo "User: $(whoami)"
 
-jobs: 
   macos-job:
     runs-on: macos-latest
     steps:
@@ -23,8 +22,7 @@ jobs:
           echo "OS: $(uname -a)"
           echo "Hostname: $(hostname)"
           echo "User: $(whoami)"
-
-jobs:   
+  
   windows-job:
     runs-on: windows-latest
     steps:
