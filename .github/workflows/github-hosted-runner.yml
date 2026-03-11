@@ -18,3 +18,6 @@ jobs:
       
       - name: Print OS name
         run: uname -a 
+
+      - name: print os name
+        run: echo "Running OS is ${{ matrix.os }}"
