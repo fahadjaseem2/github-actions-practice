@@ -1,11 +1,11 @@
-name: multi-os
+name: multi os
 
 on:
   push:
     branches: [main]
 
 jobs:
-  ubuntu: 
+  ubuntu-job: 
     runs-on: ubuntu-latest
     steps:
       - name: print runner info
@@ -15,7 +15,7 @@ jobs:
           echo "User: $(whoami)"
 
 jobs: 
-  macos:
+  macos-job:
     runs-on: macos-latest
     steps:
       - name: print runner info
@@ -25,7 +25,7 @@ jobs:
           echo "User: $(whoami)"
 
 jobs:   
-  windows:
+  windows-job:
     runs-on: windows-latest
     steps:
       - name: print runner info
@@ -33,4 +33,3 @@ jobs:
           echo OS: %OS%
           hostname
           echo User: %USERNAME%
-          
