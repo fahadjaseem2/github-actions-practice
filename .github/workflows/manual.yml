@@ -7,7 +7,7 @@ on:
         discription: 'Target Environment'  #This is the label shown in the GitHub UI.
         recuired: true    # The workflow cannot run unless this value is provided.
         default: 'staging'   # If the user does nothing, the workflow uses:
-        type: choice.  # This changes the input from free text into a dropdown menu.
+        type: choice  # This changes the input from free text into a dropdown menu.
         choice:
           - staging
           - production
