@@ -16,8 +16,11 @@ jobs:
       - name: code checkout
         uses: actions/checkout@v4
       
-      - name: Print OS name
+      - name: Print OS Information
         run: uname -a 
 
       - name: print os name
         run: echo "Running OS is ${{ matrix.os }}"
+
+      - name: Runner hostname
+        run: 

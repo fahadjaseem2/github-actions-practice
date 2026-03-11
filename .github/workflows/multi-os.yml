@@ -1,0 +1,36 @@
+name: multi-os
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ubuntu: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: print runner info
+        run: |
+          echo "OS: $(uname -a)"
+          echo "Hostname: $(hostname)"
+          echo "User: $(whoami)"
+
+jobs: 
+  macos:
+    runs-on: macos-latest
+    steps:
+      - name: print runner info
+        run: |
+          echo "OS: $(uname -a)"
+          echo "Hostname: $(hostname)"
+          echo "User: $(whoami)"
+
+jobs:   
+  windows:
+    runs-on: windows-latest
+    steps:
+      - name: print runner info
+        run: |
+          echo OS: %OS%
+          hostname
+          echo User: %USERNAME%
+          
