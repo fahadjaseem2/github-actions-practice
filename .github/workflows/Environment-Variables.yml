@@ -23,3 +23,4 @@ jobs:
           echo "Application Name: ${{ env.APP_NAME }}"
           echo "Environment is: ${{ env.ENVIRONMENT }}"
           echo "Version: ${{ env.VERSION }}"
+          echo " SHA: ${{ github.sha }}"
