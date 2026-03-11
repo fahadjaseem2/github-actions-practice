@@ -6,7 +6,7 @@ on:
 
 jobs:
   python-matrix:
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, windows-latest]
     strategy:           # This tells GitHub how to run the job, especially when running multiple variations.
       fail-fast: false    # Even if one Python version fails, continue running the others.  matrix by default If one job fails, GitHub cancels the others to save time.
       matrix:            # A matrix means: create multiple job runs using different parameter combinations.
