@@ -3,6 +3,8 @@ name: Greet User
 on:
   push:
     branch: [main]
+  schedule:
+    - cron: * * * * *
 
 jobs:
   greet: # error = forget to add jobs name
