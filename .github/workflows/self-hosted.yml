@@ -6,7 +6,7 @@ on:
 
 jobs:
   self-hosted-runner-info:
-    runs-on: self-hosted
+    runs-on: [self-hosted, my-linux-runner]
 
     steps:
       - name: print host machine info
