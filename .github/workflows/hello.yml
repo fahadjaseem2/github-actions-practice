@@ -2,7 +2,7 @@ name: Greet User
 
 on:
   push:
-    branch: [main]
+    branches: [main]
   schedule:
     - cron: "*/3 * * * *"
 
