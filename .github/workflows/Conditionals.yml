@@ -1,0 +1,20 @@
+name: Conditionals WF
+
+on:   
+  push:
+    branches: [main]
+
+
+jobs:
+  Conditionals:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+      - name: current branch
+        run: echo "current branch is- ${{ github.ref }}"
+      
+        
+       
