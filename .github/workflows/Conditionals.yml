@@ -2,12 +2,13 @@ name: Conditionals WF
 
 on:   
   push:
-    branches: [main]
+  pull_request:
 
 
 jobs:
   Conditionals:
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'push'
+    #if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     
     steps:
@@ -15,6 +16,17 @@ jobs:
         uses: actions/checkout@v4
       - name: current branch name
         run: echo "current branch is- ${{ github.ref }}"
+      
+      - name: runs only main branch
+        if: github.ref == 'refs/heads/main'   #branch == main → run, branch != main → skip
+        run: echo "this step only run on main branch"
+
+      - name: run only if above step fail
+        if: failure()          # success()   → previous steps succeeded. / failure()   → a previous step failed. / always()    → run no matter what. / cancelled()→ run if workflow was cancelled
+        run: echo "previous step is fail"
+
+
+
 
       
         
