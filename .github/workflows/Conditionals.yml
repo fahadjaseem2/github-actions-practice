@@ -13,8 +13,9 @@ jobs:
     steps:
       - name: code checkout
         uses: actions/checkout@v4
-      - name: current branch
-        run: echo "current branch is- ${{ github.head_ref }}"
+      - name: current branch name
+        run: echo "current branch is- ${{ github.ref }}"
+
       
         
        
