@@ -1,7 +1,7 @@
 name: job output WF
 
 on:
-  dispatch_workflow:
+  workflow_dispatch:
 
 jobs: 
   job-1:
@@ -16,13 +16,13 @@ jobs:
         run: echo "date=$(date +%Y-%m-%d)" >> GITHUB.OUTPUT
 
 
-    jobs-2:
-      needs: job-1
-      runs-on: ubuntu-latest
+  jobs-2:
+    needs: job-1
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: print the current date from job-1
-          run: echo "today's date is:${{ needs.job-1.outputs.current-date }}"
+    steps:
+      - name: print the current date from job-1
+        run: echo "today's date is:${{ needs.job-1.outputs.current-date }}"
      
 
 
