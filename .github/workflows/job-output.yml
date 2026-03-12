@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: setting up date for output
         id: setup-date
-        run: echo "date=$date" >> GITHUB_OUTPUT
+        run: echo "date=$(date)" >> GITHUB_OUTPUT
 
 
   jobs-2:
