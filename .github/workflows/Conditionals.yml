@@ -21,8 +21,8 @@ jobs:
         if: github.ref == 'refs/heads/main'   #branch == main → run, branch != main → skip
         run: echo "this step only run on main branch"
 
-      - name: fail intentionally
-        run: exit 1
+      #- name: fail intentionally
+        #run: exit 1
       
       - name: run only if above step fail
         if: failure()          # success()   → previous steps succeeded. / failure()   → a previous step failed. / always()    → run no matter what. / cancelled()→ run if workflow was cancelled
