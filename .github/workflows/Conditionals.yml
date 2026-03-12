@@ -30,9 +30,7 @@ jobs:
 
       - name: continue-on-error:true steps (fail intentionally)
         continue-on-error: true
-        run: |
-          echo "next step run automatically"
-          exit 1
+        run: exit 1
 
       - name: step after failure 
         run:  echo "pipeline still continue"
