@@ -1,0 +1,37 @@
+name: smart pipeline
+
+on:
+  push:
+    branches:
+      - '**'
+      #- '!main'
+
+jobs: 
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+      - name: run linter
+        run: echo "Running lint check..."
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+      - name: run linter
+        run: echo "Running tests..."
+
+  summary:
+    needs:
+      - lint
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+      - name: current branch name
+        run: echo "current branch is:${{ github.ref_name }}"
+      - name: print commit message
+        run: echo "commit message is:${{ github.event.head_commit.message }}"
