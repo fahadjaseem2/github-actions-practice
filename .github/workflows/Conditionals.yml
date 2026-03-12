@@ -28,6 +28,15 @@ jobs:
         if: failure()          # success()   → previous steps succeeded. / failure()   → a previous step failed. / always()    → run no matter what. / cancelled()→ run if workflow was cancelled
         run: echo "previous step is fail"
 
+      - name: continue-on-error:true steps (fail intentionally)
+        continue-on-error: true
+        run: |
+          echo "next step run automatically"
+          exit 1
+
+      - name: step after failure 
+        run:  echo "pipeline still continue"
+
 
 
 
