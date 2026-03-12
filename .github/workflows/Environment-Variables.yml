@@ -1,8 +1,10 @@
 name: env variables
 
 on:
-  push:
-    branches: [main]
+ # push:
+   # branches: [main]
+   workflow_dispatch:
+   
 env:
   APP_NAME: myapp
 
