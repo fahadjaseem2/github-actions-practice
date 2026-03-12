@@ -1,0 +1,21 @@
+name: job output  
+
+on:
+  dispatch_workflow:
+
+jobs:
+  output-job:
+    runs-on: ubuntu-latest  
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+
+      - name: date output
+        run: date
+
+
+  read-output:
+    runs-on: ubuntu-latest
+    steps:
+      - name: read output
+        read: ${{ jobs.output-job.steps }}
