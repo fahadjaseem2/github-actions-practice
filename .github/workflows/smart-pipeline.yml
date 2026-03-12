@@ -31,7 +31,14 @@ jobs:
     steps:
       - name: code checkout
         uses: actions/checkout@v4
+        
       - name: current branch name
-        run: echo "current branch is:${{ github.ref_name }}"
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            echo "This is Main branch push"
+          else
+            echo "This is feature branch push"
+          fi
+
       - name: print commit message
         run: echo "commit message is:${{ github.event.head_commit.message }}"
