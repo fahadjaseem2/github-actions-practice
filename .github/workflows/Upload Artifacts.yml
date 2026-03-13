@@ -10,7 +10,7 @@ jobs:
       - name: generate test file
         run: |
           mkdir actions
-          echo " Hey, keep this output for me. " >> upload-artifact.txt
+          echo " Hey, keep this output for me. " >> actions/upload-artifact.txt
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
