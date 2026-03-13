@@ -11,7 +11,7 @@ jobs:
       - name: generate artifact directory and file
         run: |
           mkdir job-1
-          echo "This artifact is created by job-1" >> job-1/artifact-1.txt
+          echo "This artifact is created by job-1" > job-1/artifact-1.txt
 
       - name: upload artifact
         uses: actions/upload-artifact@v4
@@ -27,7 +27,7 @@ jobs:
       - name: Download artifact from another job
         uses: actions/download-artifact@v4
         with:
-          name: job-1/artifact-1
+          name: artifact-1
 
       - name: print artifact
         run: cat artifact-1.txt
