@@ -1,0 +1,21 @@
+name: disk check shell script
+
+on:
+  workflow_dispatch:
+    paths:
+      - "scripts/disk-check.sh"
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v4
+
+      - name: give permission
+        run: chmod 744 disk-check.sh 
+
+      - name: run script
+        run: ./scripts/disk-check.sh
+      
