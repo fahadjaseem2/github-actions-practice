@@ -21,7 +21,7 @@ jobs:
 
   download-artifact:
     needs: upload-artifact
-    runs-on:
+    runs-on: ubuntu-latest
     
     steps:
       - name: Download artifact from another job
