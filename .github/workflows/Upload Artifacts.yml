@@ -1,0 +1,20 @@
+name: Upload Artifacts file
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  artifacts:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: generate test file
+        run: |
+          mkdir actions
+          echo " Hey, keep this output for me. " >> upload-artifact.txt
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+        name: upload-artifact
+        path: action/upload-artifact.txt
+
+        
