@@ -27,7 +27,7 @@ jobs:
       - name: Download artifact from another job
         uses: actions/download-artifact@v4
         with:
-          name: artifact-1
+          name: job-1/artifact-1
 
       - name: print artifact
         run: cat artifact-1.txt
