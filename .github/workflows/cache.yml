@@ -26,7 +26,6 @@ jobs:
         run: |
             pwd
             ls -la
-            cat requirements.txt
 
       - name: Install dependencies
         run: pip install -r requirements.txt
