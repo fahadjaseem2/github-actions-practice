@@ -36,7 +36,7 @@ jobs:
       - name: docker Build and push
         uses: docker/build-push-action@v6
         with:
-          push: ${{ github.ref == 'ref/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/main' }}
           tags: |
             ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
             ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.sha }}
