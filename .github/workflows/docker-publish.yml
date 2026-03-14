@@ -34,7 +34,7 @@ jobs:
        #     ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.sha }}
        #     ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
       - name: docker Build and push
-        uses: docker/build-push-actions@v6
+        uses: docker/build-push-action@v6
         with:
           push: ${{ github.ref == 'ref/heads/main' }}
           tags: |
