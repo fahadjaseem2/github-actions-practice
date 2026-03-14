@@ -10,10 +10,9 @@ RUN apt-get update && apt-get install -y \
 
 COPY requirements.txt .
 
-RUN pip install mysqlclient
+RUN pip install mysqlclient \
     pip install --no-cache-dir -r requirements.txt
-
-
+    
 COPY . .
 
 RUN useradd -m fahad
