@@ -2,7 +2,9 @@ name: docker publish app for day-36
 
 on: 
   push:
-    branches: [main]
+    branches:
+      - main
+      - prod 
 
 jobs: 
   build:
@@ -22,13 +24,23 @@ jobs:
 
      # - name: docker login
      # run: docker login -u ${{ DOCKER_USERNAME }} -p ${{ DOCKER_TOKEN }}
-      - name: docker build and push
-        uses: docker/build-push-action@v6
+      
+     # - name: docker build and push
+      #  uses: docker/build-push-action@v6
+      #  with:
+      #    push: true   # when branch push then this step run 
+       #   tags: |
+       #     ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.ref_name }}
+       #     ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.sha }}
+       #     ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
+      - name: docker Build and push
+        uses: docker/build-push-actions@v6
         with:
-          push: true
-          tags: |
-            ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.ref_name }}
-            ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.sha }}
-            ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
+          push: ${{ github.ref == 'ref/heads/main' }}
+          tags:
+            ${{ DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
+            ${{ DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.sha }}
+            
+      
 
       
