@@ -38,9 +38,9 @@ jobs:
         with:
           push: ${{ github.ref == 'ref/heads/main' }}
           tags:
-            ${{ DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
-            ${{ DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.sha }}
-            
+            ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
+            ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.sha }}
+
       
 
       
