@@ -26,7 +26,7 @@ jobs:
         run: |
             pwd
             ls -la
-            cat /home/runner/work/github-actions-practice/github-actions-practice/requirements.txt
+            cat requirements.txt
 
       - name: Install dependencies
         run: pip install -r requirements.txt
