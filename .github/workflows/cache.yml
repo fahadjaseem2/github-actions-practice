@@ -11,6 +11,11 @@ jobs:
       - name: code checkout
         uses: actions/checkout@v4
 
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       - name: cache dependency
         uses: actions/cache@v4
         with:
