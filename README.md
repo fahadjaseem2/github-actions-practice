@@ -1,0 +1,1 @@
+[![docker publish app for day-36](https://github.com/fahadjaseem2/github-actions-practice/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/fahadjaseem2/github-actions-practice/actions/workflows/docker-publish.yml)
