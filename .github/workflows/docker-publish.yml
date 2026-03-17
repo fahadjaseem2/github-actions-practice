@@ -2,9 +2,10 @@ name: docker publish app for day-36
 
 on: 
   push:
-    branches:
-      - main
-      - prod 
+    workflow_dispatch:
+    # branches:
+     # - main
+     # - prod 
 
 jobs: 
   build:
