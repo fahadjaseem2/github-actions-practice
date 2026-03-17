@@ -1,0 +1,14 @@
+name: call Building
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    uses: fahadjaseem2/github-actions-practice/.github/workflows/reusable-build.yml
+    with:
+      app: "my-web-app"
+      environment: "prod"
+    secrets:
+      docker_token: ${{ DOCKER_TOKE }}
