@@ -6,7 +6,8 @@ on:
 
 jobs:
   build-resusable:
-    uses: fahadjaseem2/github-actions-practice/.github/workflows/reusable-build.yml
+    uses: ./.github/workflows/reusable-build.yml
+    # fahadjaseem2/github-actions-practice/.github/workflows/reusable-build.yml ( this path use when workflow is another repo)
     with:
       app: "my-web-app"
       environment: "prod"
