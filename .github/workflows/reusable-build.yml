@@ -4,36 +4,37 @@ on:
   workflow_call:
     inputs:
       app:
-        discription: "name of the application"
+        description: "name of the application"
         required: true
         type: string
 
 
       environment: # name of input
-        discription: "Target Environment"
+        description: "Target Environment"
         required: true
         default: staging
         type: string
         
-      secrets:
-        docker_token:
-        required: true
+    secrets:
+      docker_token:
+      required: true
 
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Code checkout
-      uses: actions/checkout@v4
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v4
 
-    - name: Print Building app name for environment
-      run: echo " APP Name is :${{ inputs.app }} and Environment is :${{ inputs.environment }}"
+      - name: Print Building app name for environment
+        run: echo " APP Name is :${{ inputs.app }} and Environment is :${{ inputs.environment }}"
 
-    - name: verify docker token
-      run: |
-        if [ -z "${{ secrets.docker_token }}" ]; then
-          echo " Docker Token is set: True"
-        else
-          echo " Docker Token is set: false"
-        fi
+      - name: verify docker token
+        run: |
+          if [ -z "${{ secrets.docker_token }}" ]; then
+            echo " Docker Token is set: True"
+          else
+            echo " Docker Token is set: false"
+          fi
 
