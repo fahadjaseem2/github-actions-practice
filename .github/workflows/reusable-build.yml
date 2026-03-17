@@ -4,13 +4,13 @@ on:
   workflow_call:
     inputs:
       app:
-        discription: 'name of the application'
+        discription: "name of the application"
         required: true
         type: string
 
 
       environment: # name of input
-        discription: 'Target Environment'
+        discription: "Target Environment"
         required: true
         default: staging
         type: string
@@ -31,7 +31,7 @@ jobs:
 
     - name: verify docker token
       run: |
-        if [ -z "${{ secrets.DOCKER_TOKE }}" ]; then
+        if [ -z "${{ secrets.docker_token }}" ]; then
           echo " Docker Token is set: True"
         else
           echo " Docker Token is set: false"
