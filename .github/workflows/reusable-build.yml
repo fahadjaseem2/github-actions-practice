@@ -18,10 +18,19 @@ on:
     secrets:
       docker_token:
         required: true
+
+    outputs:
+      build_version:
+        description: "generating build version"
+        value: ${{ jobs.build.outputs.build_version }}
+
         
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    outputs:
+      build_version: ${{ steps.set_version.outputs.build_version }}
 
     steps:
       - name: Code Checkout
@@ -29,6 +38,25 @@ jobs:
 
       - name: print app and environment
         run: echo " Building App is :${{ inputs.app_name }} and environment is :${{ inputs.environment }}"
+
+      - name: set outputs
+        id: set_version
+        run: |
+          VERSION=v1.0.${{ github.sha::7 }}
+          echo "build_version=VERSION" >> $GITHUB_OUTPUT
+
+      # 1 job level
+      # “Take build_version from step set_version and assign it as job output”
+
+      # 2. Workflow level
+      # “Take build_version from job build and expose it to caller”
+
+      # Step level:
+      #  creates output named build_version
+
+      # Step → gives parcel named "build_version"
+      # Job → receives and forwards same parcel
+      # Workflow → exposes parcel outside
 
       - name: set docker token
         run: |
