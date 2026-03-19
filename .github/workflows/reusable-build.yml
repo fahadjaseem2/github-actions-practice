@@ -45,19 +45,6 @@ jobs:
           VERSION=v1.0.${{ github.sha::7 }}
           echo "build_version=VERSION" >> $GITHUB_OUTPUT
 
-      # 1 job level
-      # “Take build_version from step set_version and assign it as job output”
-
-      # 2. Workflow level
-      # “Take build_version from job build and expose it to caller”
-
-      # Step level:
-      #  creates output named build_version
-
-      # Step → gives parcel named "build_version"
-      # Job → receives and forwards same parcel
-      # Workflow → exposes parcel outside
-
       - name: set docker token
         run: |
           if [ -z "${{ secrets.DOCKER_TOKE }}" ]; then
