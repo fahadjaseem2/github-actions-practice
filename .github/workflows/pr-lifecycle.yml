@@ -26,4 +26,4 @@ jobs:
           echo "Base Branch is ${{ github.base.ref }}"
       - name: run when PR is merged(closed+merged)
         if: ${{ github.event.action == 'closed' &&  github.event.pull_request.merged == true }}
-        run: echo "PR was merged successfully"
+        run: echo "P-R was merged successfully"
