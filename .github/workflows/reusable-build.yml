@@ -42,8 +42,8 @@ jobs:
       - name: set outputs
         id: set_version
         run: |
-          VERSION="v1.0-${{ github.sha::7 }}"
-          echo "build_version=VERSION" >> $GITHUB_OUTPUT
+          VERSION="v1.0-${GITHUB_SHA::7}"
+          echo "build_version=$VERSION" >> $GITHUB_OUTPUT
 
       # 1 job level
       # “Take build_version from step set_version and assign it as job output”
@@ -61,8 +61,8 @@ jobs:
       - name: set docker token
         run: |
           if [ -z "${{ secrets.DOCKER_TOKE }}" ]; then
-            echo "Docker token is set"
-          else
             echo "Docker token is not set"
+          else
+            echo "Docker token is set"
           fi      
 
