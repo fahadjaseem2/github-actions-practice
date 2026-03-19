@@ -19,4 +19,4 @@ jobs:
           language: "hi"
 
       - name: print output
-        run: echo "Greeted output:${{ steps.greet_step.outputs.greeted }}"
+        run: echo "Greeted output:" ${{ steps.greet_step.outputs.greeted }}
