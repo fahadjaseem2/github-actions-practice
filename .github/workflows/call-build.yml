@@ -1,15 +1,18 @@
-name: call Building
+name: call build
 
 on:
   push:
     branches: [main]
 
 jobs:
-  build-resusable:
-    uses: ./.github/workflows/reusable-build.yml
-    # fahadjaseem2/github-actions-practice/.github/workflows/reusable-build.yml ( this path use when workflow is another repo)
+  build:
+    runs-on: ubuntu-latest
+    uses: ./ .github/workflows/reusable-build.yml
     with:
-      app: "my-web-app"
+      app_name: "my-web-app"
       environment: "prod"
     secrets:
-      docker_token: ${{ secrets.docker_token }}
+      docker_token: ${{ secrets.DOCKER_TOKE }}
+
+    
+  

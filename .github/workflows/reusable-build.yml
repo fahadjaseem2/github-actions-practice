@@ -1,40 +1,40 @@
-name: resusable workflow call
+name: reusable build
 
 on:
   workflow_call:
+
     inputs:
-      app:
-        description: "name of the application"
+      app_name: 
+        description: enter app name
         required: true
         type: string
 
-
-      environment: # name of input
-        description: "Target Environment"
+      environment:
+        description: enter the environment
         required: true
         default: staging
         type: string
+      
+      secrets:
+        docker_token:
+          required: true
         
-    secrets:
-      docker_token:
-        required: true
-
-
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Code checkout
+      - name: Code Checkout
         uses: actions/checkout@v4
 
-      - name: Print Building app name for environment
-        run: echo " APP Name is :${{ inputs.app }} and Environment is :${{ inputs.environment }}"
+      - name: print app and environment
+        run: echo " Building App is :${{ inputs.app_name }} and environment is :${{ inputs.environment }}"
 
-      - name: verify docker token
+      - name: set docker token
         run: |
-          if [ -z "${{ secrets.docker_token }}" ]; then
-            echo "docker Token is set: True"
+          if [ -z "${{ DOCKER_TOKE }}" ]; then
+            echo "Docker token is set"
           else
-            echo "Docker Token is set: false"
-          fi
+            echo "Docker token is not set"
+          fi      
 
