@@ -1,0 +1,22 @@
+name: test composite actions
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  test-composite:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+      
+      - name: composite actions
+        id: greet_step
+        uses: ./.github/actions/setup-and-greet
+        with:
+          name: "fahad"
+          language: "hi"
+
+      - name: print output
+        run: echo "Greeted output:${{ steps.greet_step.outputs.greeted }}"
