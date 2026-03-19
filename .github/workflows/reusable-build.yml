@@ -32,7 +32,7 @@ jobs:
 
       - name: set docker token
         run: |
-          if [ -z "${{ DOCKER_TOKE }}" ]; then
+          if [ -z "${{ secrets.DOCKER_TOKE }}" ]; then
             echo "Docker token is set"
           else
             echo "Docker token is not set"
