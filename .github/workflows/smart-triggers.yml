@@ -1,0 +1,22 @@
+name: smart triggers
+
+on:
+  push:
+    paths:
+      - 'src/**'
+      - 'app/**'
+    paths-ignore:
+      - '*.md'
+      - 'doc/**'
+    branches:
+      - main
+      - release/*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print message
+        run: echo "Triggered because relevant code changed in src/ or app/"
+
+        
